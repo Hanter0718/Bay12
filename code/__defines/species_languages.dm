@@ -34,6 +34,8 @@
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Gutter"
 #define LANGUAGE_CULT "Cult"
+#define LANGUAGE_VULP "Canilunzt"
+
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
