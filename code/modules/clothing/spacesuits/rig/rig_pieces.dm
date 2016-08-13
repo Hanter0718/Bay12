@@ -10,12 +10,14 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	brightness_on = 4
+	species_restricted = list("Human", "Skrell")
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Vulpkanin" = 'harroway/icons/mob/vulpkanin/helmet.dmi'
 		)
-	species_restricted = null
+
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
@@ -50,7 +52,8 @@
 	can_breach = 1
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
+		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
+		"Vulpkanin" = 'harroway/icons/mob/vulpkanin/suit.dmi'
 		)
 	var/list/supporting_limbs = list() //If not-null, automatically splints breaks. Checked when removing the suit.
 
