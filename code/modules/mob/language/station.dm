@@ -48,6 +48,8 @@
 	"ka","aasi","far","wa","baq","ara","qara","zir","sam","mak","hrar","nja","rir","khan","jun","dar","rik","kah",
 	"hal","ket","jurl","mah","tul","cresh","azu","ragh","mro","mra","mrro","mrra")
 
+
+
 /datum/language/tajaran/get_random_name(var/gender)
 
 	var/new_name = ..(gender,1)
