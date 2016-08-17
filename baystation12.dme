@@ -2140,6 +2140,7 @@
 #include "harroway\code\_helpers\text_ru.dm"
 #include "harroway\code\_helpers\tgui.dm"
 #include "harroway\code\modules\mob\species.dm"
+#include "harroway\code\objects\deskbell.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 #include "maps\_map_include.dm"
