@@ -457,7 +457,7 @@
 	bun
 		name = "Low Bun"
 		icon_state = "hair_bun"
-		
+
 	bun2
 		name = "High Bun"
 		icon_state = "hair_bun2"
@@ -678,6 +678,99 @@
 		name = "Quill Mohawk"
 		icon_state = "vox_mohawk"
 		species_allowed = list("Vox")
+
+	//"Vulpkanin"
+	vulp_hair_none
+		name = "None"
+		icon_state = "bald"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_kajam
+		name = "Kajam"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "kajam"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_keid
+		name = "Keid"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "keid"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_adhara
+		name = "Adhara"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "adhara"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_kleeia
+		name = "Kleeia"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "kleeia"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_mizar
+		name = "Mizar"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "mizar"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_apollo
+		name = "Apollo"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "apollo"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_belle
+		name = "Belle"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "belle"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_bun
+		name = "Bun"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "bun"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_jagged
+		name = "Jagged"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "jagged"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_curl
+		name = "Curl"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "curl"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_hawk
+		name = "Hawk"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "hawk"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_anita
+		name = "Anita"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "anita"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_short
+		name = "Short"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "short"
+		species_allowed = list("Vulpkanin")
+
+	vulp_hair_spike
+		name = "Spike"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "spike"
+		species_allowed = list("Vulpkanin")
+
+
+
 /datum/sprite_accessory/facial_hair
 
 	taj_sideburns
@@ -709,6 +802,65 @@
 		name = "Tajara Smallsatche"
 		icon_state = "facial_smallstache"
 		species_allowed = list("Tajara")
+
+//Vulpkanin
+
+	vulp_blaze
+		name = "Blaze"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_blaze"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_vulpine
+		name = "Vulpine"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_vulpine"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_vulpine_fluff
+		name = "Vulpine and Earfluff"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_vulpine_fluff"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_mask
+		name = "Mask"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_mask"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_patch
+		name = "Patch"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_patch"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_ruff
+		name = "Ruff"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_ruff"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_kita
+		name = "Kita"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_kita"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
+	vulp_swift
+		name = "Swift"
+		icon = 'harroway/icons/mob/vulpkanin.dmi'
+		icon_state = "vulp_facial_swift"
+		species_allowed = list("Vulpkanin")
+		gender = NEUTER
+
 
 //skin styles - WIP
 //going to have to re-integrate this with surgery
