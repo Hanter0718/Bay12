@@ -1,51 +1,92 @@
 var/list/department_radio_keys = list(
-	  ":r" = "right ear",	".r" = "right ear",
-	  ":l" = "left ear",	".l" = "left ear",
-	  ":i" = "intercom",	".i" = "intercom",
-	  ":h" = "department",	".h" = "department",
-	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
-	  ":c" = "Command",		".c" = "Command",
-	  ":n" = "Science",		".n" = "Science",
-	  ":m" = "Medical",		".m" = "Medical",
-	  ":e" = "Engineering", ".e" = "Engineering",
-	  ":s" = "Security",	".s" = "Security",
-	  ":w" = "whisper",		".w" = "whisper",
-	  ":t" = "Mercenary",	".t" = "Mercenary",
-	  ":u" = "Supply",		".u" = "Supply",
-	  ":v" = "Service",		".v" = "Service",
-	  ":p" = "AI Private",	".p" = "AI Private",
-	  ":z" = "Entertainment",".z" = "Entertainment",
+	  ":r" = "right ear",	"#r" = "right ear",		".r" = "right ear",
+	  ":ê" = "right ear",	"#ê" = "right ear",		".ê" = "right ear",
 
-	  ":R" = "right ear",	".R" = "right ear",
-	  ":L" = "left ear",	".L" = "left ear",
-	  ":I" = "intercom",	".I" = "intercom",
-	  ":H" = "department",	".H" = "department",
-	  ":C" = "Command",		".C" = "Command",
-	  ":N" = "Science",		".N" = "Science",
-	  ":M" = "Medical",		".M" = "Medical",
-	  ":E" = "Engineering",	".E" = "Engineering",
-	  ":S" = "Security",	".S" = "Security",
-	  ":W" = "whisper",		".W" = "whisper",
-	  ":T" = "Mercenary",	".T" = "Mercenary",
-	  ":U" = "Supply",		".U" = "Supply",
-	  ":V" = "Service",		".V" = "Service",
-	  ":P" = "AI Private",	".P" = "AI Private",
-	  ":Z" = "Entertainment",".Z" = "Entertainment",
+	  ":l" = "left ear",	"#l" = "left ear",		".l" = "left ear",
+	  ":ä" = "left ear",	"#ä" = "left ear",		".ä" = "left ear",
 
-	  //kinda localization -- rastaf0
-	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply",
+	  ":i" = "intercom",	"#i" = "intercom",		".i" = "intercom",
+	  ":ø" = "intercom",	"#ø" = "intercom",		".ø" = "intercom",
+
+	  ":h" = "department",	"#h" = "department",	".h" = "department",
+	  ":ð" = "department",	"#ð" = "department",	".ð" = "department",
+
+	  ":+" = "special",		"#+" = "special",		".+" = "special", //activate radio-specific special functions
+
+	  ":c" = "Command",		"#c" = "Command",		".c" = "Command",
+	  ":ñ" = "Command",		"#ñ" = "Command",		".ñ" = "Command",
+
+	  ":n" = "Science",		"#n" = "Science",		".n" = "Science",
+	  ":ò" = "Science",		"#ò" = "Science",		".ò" = "Science",
+
+	  ":m" = "Medical",		"#m" = "Medical",		".m" = "Medical",
+	  ":ü" = "Medical",		"#ü" = "Medical",		".ü" = "Medical",
+
+	  ":e" = "Engineering", "#e" = "Engineering",	".e" = "Engineering",
+	  ":ó" = "Engineering", "#ó" = "Engineering",	".ó" = "Engineering",
+
+	  ":s" = "Security",	"#s" = "Security",		".s" = "Security",
+	  ":û" = "Security",	"#û" = "Security",		".û" = "Security",
+
+	  ":w" = "whisper",		"#w" = "whisper",		".w" = "whisper",
+	  ":ö" = "whisper",		"#ö" = "whisper",		".ö" = "whisper",
+
+	  ":t" = "Syndicate",	"#t" = "Syndicate",		".t" = "Syndicate",
+	  ":å" = "Syndicate",	"#å" = "Syndicate",		".å" = "Syndicate",
+
+	  ":u" = "Supply",		"#u" = "Supply",		".u" = "Supply",
+	  ":ã" = "Supply",		"#ã" = "Supply",		".ã" = "Supply",
+
+	  ":z" = "Service",		"#z" = "Service",		".z" = "Service",
+	  ":ÿ" = "Service",		"#ÿ" = "Service",		".ÿ" = "Service",
+
+	  ":p" = "AI Private",	"#p" = "AI Private",	".p" = "AI Private",
+	  ":ç" = "AI Private",	"#ç" = "AI Private",	".ç" = "AI Private",
+
+
+
+	  ":R" = "right ear",	"#R" = "right ear",		".R" = "right ear",
+	  ":Ê" = "right ear",	"#Ê" = "right ear",		".Ê" = "right ear",
+
+	  ":L" = "left ear",	"#L" = "left ear",		".L" = "left ear",
+	  ":Ä" = "left ear",	"#Ä" = "left ear",		".Ä" = "left ear",
+
+	  ":I" = "intercom",	"#I" = "intercom",		".I" = "intercom",
+	  ":Ø" = "intercom",	"#Ø" = "intercom",		".Ø" = "intercom",
+
+	  ":H" = "department",	"#H" = "department",	".H" = "department",
+	  ":Ð" = "department",	"#Ð" = "department",	".Ð" = "department",
+
+	  ":C" = "Command",		"#C" = "Command",		".C" = "Command",
+	  ":Ñ" = "Command",		"#Ñ" = "Command",		".Ñ" = "Command",
+
+	  ":N" = "Science",		"#N" = "Science",		".N" = "Science",
+	  ":Ò" = "Science",		"#Ò" = "Science",		".Ò" = "Science",
+
+	  ":M" = "Medical",		"#M" = "Medical",		".M" = "Medical",
+	  ":Ü" = "Medical",		"#Ü" = "Medical",		".Ü" = "Medical",
+
+	  ":E" = "Engineering",	"#E" = "Engineering",	".E" = "Engineering",
+	  ":Ó" = "Engineering",	"#Ó" = "Engineering",	".Ó" = "Engineering",
+
+	  ":S" = "Security",	"#S" = "Security",		".S" = "Security",
+	  ":Û" = "Security",	"#Û" = "Security",		".Û" = "Security",
+
+	  ":W" = "whisper",		"#W" = "whisper",		".W" = "whisper",
+	  ":Ö" = "whisper",		"#Ö" = "whisper",		".Ö" = "whisper",
+
+	  ":T" = "Syndicate",	"#T" = "Syndicate",		".T" = "Syndicate",
+	  ":Å" = "Syndicate",	"#Å" = "Syndicate",		".Å" = "Syndicate",
+
+	  ":U" = "Supply",		"#U" = "Supply",		".U" = "Supply",
+	  ":Ã" = "Supply",		"#Ã" = "Supply",		".Ã" = "Supply",
+
+	  ":Z" = "Service",		"#Z" = "Service",		".Z" = "Service",
+	  ":ß" = "Service",		"#ß" = "Service",		".ß" = "Service",
+
+	  ":P" = "AI Private",	"#P" = "AI Private",	".P" = "AI Private",
+	  ":Ç" = "AI Private",	"#Ç" = "AI Private",	".Ç" = "AI Private",
+	  ":-" = "Special Ops",	"#-" = "Special Ops",	".-" = "Special Ops"
 )
 
 
