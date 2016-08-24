@@ -29,7 +29,7 @@
 	var/gender = NEUTER
 
 	// Restrict some styles to specific species
-	var/list/species_allowed = list("Human")
+	var/list/species_allowed = list("Human", "Slime")
 
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
