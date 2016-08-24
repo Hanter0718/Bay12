@@ -131,6 +131,10 @@
 	processScheduler = new
 	master_controller = new /datum/controller/game_controller()
 	spawn(1)
+		for(var/turf/T in world)
+			T.initialize()
+			turfs += T
+
 		processScheduler.deferSetupFor(/datum/controller/process/ticker)
 		processScheduler.setup()
 		master_controller.setup()
@@ -140,7 +144,7 @@
 
 
 
-	spawn(3000)		//so we aren't adding to the round-start lag
+	spawn(2000)		//so we aren't adding to the round-start lag
 		if(config.ToRban)
 			ToRban_autoupdate()
 

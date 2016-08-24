@@ -56,7 +56,8 @@ var/list/page_sound = list('sound/effects/pageturn1.ogg', 'sound/effects/pagetur
 
 	var/frequency = get_rand_frequency() // Same frequency for everybody
 	var/turf/turf_source = get_turf(source)
-
+	var/sound/S = sound(soundin)
+	var/maxdistance = (world.view + extrarange) * 3
  	// Looping through the player list has the added bonus of working for mobs inside containers
 	for (var/P in player_list)
 		var/mob/M = P
@@ -64,19 +65,20 @@ var/list/page_sound = list('sound/effects/pageturn1.ogg', 'sound/effects/pagetur
 			continue
 
 		var/distance = get_dist(M, turf_source)
-		if(distance <= (world.view + extrarange) * 3)
+		if(distance <= maxdistance)
 			var/turf/T = get_turf(M)
 
 			if(T && T.z == turf_source.z)
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global)
+				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, S)
 
 var/const/FALLOFF_SOUNDS = 0.5
 
-/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global)
+/mob/proc/playsound_local(var/turf/turf_source, soundin, vol as num, vary, frequency, falloff, is_global, sound/S)
 	if(!src.client || ear_deaf > 0)	return
 	soundin = get_sfx(soundin)
 
-	var/sound/S = sound(soundin)
+	if(!S)
+		S = sound(get_sfx(soundin))
 	S.wait = 0 //No queue
 	S.channel = 0 //Any channel
 	S.volume = vol

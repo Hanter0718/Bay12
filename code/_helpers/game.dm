@@ -26,11 +26,11 @@
 		max_z = max(z, max_z)
 	return max_z
 
-/proc/get_area(O)
-	var/turf/loc = get_turf(O)
-	if(loc)
-		var/area/res = loc.loc
-		.= res
+/proc/get_area(atom/A)
+	if(!istype(A))
+		return
+	for(A, A && !isarea(A), A=A.loc);
+	return A
 
 /proc/get_area_name(N) //get area by its name
 	for(var/area/A in world)
