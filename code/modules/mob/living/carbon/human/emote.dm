@@ -420,9 +420,13 @@
 			if (!muzzled)
 				message = "snores."
 				m_type = AUDIBLE_MESSAGE
+
 			else
 				message = "makes a noise."
 				m_type = AUDIBLE_MESSAGE
+
+			if(src.species in list("Machine"))
+				message = null
 
 		if ("whimper")
 			if (!muzzled)
