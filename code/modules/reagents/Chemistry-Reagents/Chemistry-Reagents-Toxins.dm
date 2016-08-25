@@ -490,6 +490,18 @@
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != "Slime")
 			M << "<span class='danger'>Your flesh rapidly mutates!</span>"
+
+			//DEKA DANGER ZONE
+
+			H.r_hair = 51
+			H.g_hair = 255
+			H.b_hair = 255
+
+			H.r_facial = 51
+			H.g_facial = 255
+			H.b_facial = 255
+			///////////////////
+
 			H.set_species("Slime")
 
 /datum/reagent/aslimetoxin
