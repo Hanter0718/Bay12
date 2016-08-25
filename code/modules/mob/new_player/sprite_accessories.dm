@@ -200,13 +200,13 @@
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
 		gender = FEMALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 
 	bob
 		name = "Bob"
 		icon_state = "hair_bobcut"
 		gender = FEMALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 
 	bowl
 		name = "Bowl"
@@ -217,7 +217,7 @@
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
 		gender = MALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 
 	crew
 		name = "Crewcut"
@@ -310,7 +310,7 @@
 	mohawk
 		name = "Mohawk"
 		icon_state = "hair_d"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 	jensen
 		name = "Adam Jensen Hair"
 		icon_state = "hair_jensen"
@@ -329,7 +329,7 @@
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spikey"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 	kusangi
 		name = "Kusanagi Hair"
 		icon_state = "hair_kusanagi"
@@ -528,7 +528,7 @@
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Unathi", "Slime")
 
 	abe
 		name = "Abraham Lincoln Beard"
@@ -570,38 +570,38 @@
 	una_spines_long
 		name = "Long Unathi Spines"
 		icon_state = "soghun_longspines"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi", "Slime")
 
 	una_spines_short
 		name = "Short Unathi Spines"
 		icon_state = "soghun_shortspines"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi", "Slime")
 
 	una_frills_long
 		name = "Long Unathi Frills"
 		icon_state = "soghun_longfrills"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi", "Slime")
 
 	una_frills_short
 		name = "Short Unathi Frills"
 		icon_state = "soghun_shortfrills"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi", "Slime")
 
 	una_horns
 		name = "Unathi Horns"
 		icon_state = "soghun_horns"
-		species_allowed = list("Unathi")
+		species_allowed = list("Unathi", "Slime")
 
 	skr_tentacle_m
 		name = "Skrell Male Tentacles"
 		icon_state = "skrell_hair_m"
-		species_allowed = list("Skrell")
+		species_allowed = list("Skrell", "Slime")
 		gender = MALE
 
 	skr_tentacle_f
 		name = "Skrell Female Tentacles"
 		icon_state = "skrell_hair_f"
-		species_allowed = list("Skrell")
+		species_allowed = list("Skrell", "Slime")
 		gender = FEMALE
 
 	taj_ears
@@ -667,17 +667,17 @@
 	vox_quills_short
 		name = "Short Vox Quills"
 		icon_state = "vox_shortquills"
-		species_allowed = list("Vox")
+		species_allowed = list("Vox", "Slime")
 
 	vox_quills_kingly
 		name = "Kingly Vox Quills"
 		icon_state = "vox_kingly"
-		species_allowed = list("Vox")
+		species_allowed = list("Vox", "Slime")
 
 	vox_quills_mohawk
 		name = "Quill Mohawk"
 		icon_state = "vox_mohawk"
-		species_allowed = list("Vox")
+		species_allowed = list("Vox", "Slime")
 
 	//"Vulpkanin"
 	vulp_hair_none
