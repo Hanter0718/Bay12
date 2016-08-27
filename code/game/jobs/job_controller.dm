@@ -343,6 +343,20 @@ var/global/datum/controller/occupations/job_master
 				player.ready = 0
 				player.new_player_panel_proc()
 				unassigned -= player
+
+
+		//DEKA DANGER ZONE
+
+		var/player_assigned = 0
+		for(var/mob/new_player/player in player_list)
+			if(player.mind.assigned_role)
+				player_assigned++
+		if(player_assigned < 10)
+			config.jobs_have_minimal_access = 0
+
+		//////////////////
+
+
 		return 1
 
 
