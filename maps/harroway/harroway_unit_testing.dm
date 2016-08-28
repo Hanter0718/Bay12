@@ -1,4 +1,4 @@
-/datum/map/exodus
+/datum/map/harroway
 	// Unit test exemptions
 	exempt_areas = list(
 		/area/AIsattele = NO_SCRUBBER|NO_VENT|NO_APC,
