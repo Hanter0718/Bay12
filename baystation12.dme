@@ -2139,6 +2139,7 @@
 #include "code\ZAS\Zone.dm"
 #include "harroway\code\_helpers\text_ru.dm"
 #include "harroway\code\_helpers\tgui.dm"
+#include "harroway\code\modules\admin\updating.dm"
 #include "harroway\code\modules\mob\species.dm"
 #include "harroway\code\objects\deskbell.dm"
 #include "interface\interface.dm"

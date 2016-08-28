@@ -255,6 +255,7 @@ datum/controller/vote
 			if(blackbox)	blackbox.save_all_data_to_sql()
 			sleep(50)
 			log_game("Rebooting due to restart vote")
+			reboot_updating()
 			world.Reboot()
 
 		return .
