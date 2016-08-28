@@ -84,6 +84,7 @@
 		if(blackbox)
 			blackbox.save_all_data_to_sql()
 		sleep(50)
+		reboot_updating()
 		world.Reboot()
 
 	var/datum/disease2/disease/lethal = new
