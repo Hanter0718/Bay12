@@ -650,6 +650,8 @@ proc/admin_notice(var/message, var/rights)
 		if(blackbox)
 			blackbox.save_all_data_to_sql()
 
+		reboot_updating()
+
 		sleep(50)
 		world.Reboot()
 
@@ -911,6 +913,8 @@ proc/admin_notice(var/message, var/rights)
 
 	if(blackbox)
 		blackbox.save_all_data_to_sql()
+
+	reboot_updating()
 
 	world.Reboot()
 
