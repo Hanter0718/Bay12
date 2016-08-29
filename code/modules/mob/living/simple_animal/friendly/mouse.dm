@@ -76,6 +76,8 @@
 	icon_living = "mouse_[body_color]"
 	icon_dead = "mouse_[body_color]_dead"
 	desc = "It's a small [body_color] rodent, often seen hiding in maintenance areas and making a nuisance of itself."
+	//May be we can eat this?
+	reagents.add_reagent("protein", 9)
 
 /mob/living/simple_animal/mouse/proc/splat()
 	src.health = 0

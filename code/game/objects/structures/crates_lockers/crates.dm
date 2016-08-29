@@ -188,6 +188,12 @@
 		return ..()
 	if(istype(W, /obj/item/weapon/melee/energy/blade))
 		emag_act(INFINITY, user)
+	if(istype(W, /obj/item/device/multitool))
+
+		if(do_after(user, 200, target = src))
+			locked = !locked
+			update_icon()
+			to_chat(user, "<span class='notice'>You [locked ? null : "un"]lock \the [src].</span>")
 	if(!opened)
 		src.togglelock(user)
 		return
