@@ -28,4 +28,4 @@
 		return
 	world << "<span class='danger'><FONT size=5>Внимание, инициализация обновления сервера!</FONT><br>Обновление займет несколько минут, после чего сервер будет автоматически запущен. Ициниатор: [updater_key]</span>."
 	sleep(100)
-	shell("sh ../update_server.sh")
+	shell("sh update_server.sh")
