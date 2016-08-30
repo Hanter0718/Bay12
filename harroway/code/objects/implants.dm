@@ -1,3 +1,98 @@
+/proc/isloyal(A) //Checks to see if the person contains a mindshield implant, then checks that the implant is actually inside of them
+	for(var/obj/item/weapon/implant/loyalty/L in A)
+		if(L && L.implanted)
+			return 1
+	return 0
+
+/mob/living/carbon/proc/update_handcuffed()
+	if(handcuffed)
+		drop_r_hand()
+		drop_l_hand()
+		stop_pulling()
+		//throw_alert("handcuffed", /obj/screen/alert/restrained/handcuffed, new_master = src.handcuffed)
+	else
+		//clear_alert("handcuffed")
+	//update_action_buttons_icon() //some of our action buttons might be unusable when we're handcuffed.
+	//update_inv_handcuffed()
+	//update_hud_handcuffed()
+/mob/living/carbon/proc/uncuff()
+	if (handcuffed)
+		var/obj/item/weapon/W = handcuffed
+		handcuffed = null
+		//if (buckled && buckled.buckle_requires_restraints)
+		//	buckled.unbuckle_mob(src)
+		//update_handcuffed()
+		if (client)
+			client.screen -= W
+		if (W)
+			W.loc = loc
+			W.dropped(src)
+			if (W)
+				W.layer = initial(W.layer)
+	if (legcuffed)
+		var/obj/item/weapon/W = legcuffed
+		legcuffed = null
+		update_inv_legcuffed()
+		if (client)
+			client.screen -= W
+		if (W)
+			W.loc = loc
+			W.dropped(src)
+			if (W)
+				W.layer = initial(W.layer)
+
+/obj/item/weapon/implant/proc/implant(mob/target)
+/obj/item/weapon/implant/proc/removed(mob/target)
+
+//IMPLANT REMOVE
+/*
+/datum/surgery/implant_removal
+	name = "implant removal"
+	steps = list(/datum/surgery_step/incise, /datum/surgery_step/clamp_bleeders, /datum/surgery_step/retract_skin, /datum/surgery_step/extract_implant, /datum/surgery_step/close)
+	species = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
+	possible_locs = list("chest")
+	requires_organic_bodypart = 0
+
+
+/datum/surgery_step/extract_implant
+	name = "extract implant"
+	implements = list(/obj/item/weapon/hemostat = 100, /obj/item/weapon/crowbar = 65)
+	time = 64
+	var/obj/item/weapon/implant/I = null
+
+/datum/surgery_step/extract_implant/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	I = locate(/obj/item/weapon/implant) in target
+	if(I)
+		user.visible_message("[user] begins to extract [I] from [target]'s [target_zone].", "<span class='notice'>You begin to extract [I] from [target]'s [target_zone]...</span>")
+	else
+		user.visible_message("[user] looks for an implant in [target]'s [target_zone].", "<span class='notice'>You look for an implant in [target]'s [target_zone]...</span>")
+
+/datum/surgery_step/extract_implant/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	if(I)
+		user.visible_message("[user] successfully removes [I] from [target]'s [target_zone]!", "<span class='notice'>You successfully remove [I] from [target]'s [target_zone].</span>")
+		I.removed(target)
+
+		var/obj/item/weapon/implantcase/case
+
+		if(istype(user.get_item_by_slot(slot_l_hand), /obj/item/weapon/implantcase))
+			case = user.get_item_by_slot(slot_l_hand)
+		else if(istype(user.get_item_by_slot(slot_r_hand), /obj/item/weapon/implantcase))
+			case = user.get_item_by_slot(slot_r_hand)
+		else
+			case = locate(/obj/item/weapon/implantcase) in get_turf(target)
+
+		if(case && !case.imp)
+			case.imp = I
+			I.loc = case
+			case.update_icon()
+			user.visible_message("[user] places [I] into [case]!", "<span class='notice'>You place [I] into [case].</span>")
+		else
+			qdel(I)
+
+	else
+		user << "<span class='warning'>You can't find anything in [target]'s [target_zone]!</span>"
+	return 1
+*/
 /obj/item/weapon/implant
 	var/activated = 1
 	var/allow_multiple = 0
@@ -30,7 +125,7 @@
 			imp_in = null
 			qdel(src)
 			return -1
-		target.mind.readd_antag_light()
+
 		target << "<span class='notice'>You feel a surge of freedom from NT.</span>"
 		return 1
 	return 0
@@ -60,82 +155,13 @@
 	imp = new /obj/item/weapon/implant/antiloyalty(src)
 	..()
 
-//CHEM TG
-/obj/item/weapon/implant/chem
-	name = "chem implant"
-	desc = "Injects things."
-	icon_state = "reagents"
-	origin_tech = "materials=3;biotech=4"
-	flags = OPENCONTAINER
-
-/obj/item/weapon/implant/chem/get_data()
-	var/dat = {"<b>Implant Specifications:</b><BR>
-				<b>Name:</b> Robust Corp MJ-420 Prisoner Management Implant<BR>
-				<b>Life:</b> Deactivates upon death but remains within the body.<BR>
-				<b>Important Notes: Due to the system functioning off of nutrients in the implanted subject's body, the subject<BR>
-				will suffer from an increased appetite.</B><BR>
-				<HR>
-				<b>Implant Details:</b><BR>
-				<b>Function:</b> Contains a small capsule that can contain various chemicals. Upon receiving a specially encoded signal<BR>
-				the implant releases the chemicals directly into the blood stream.<BR>
-				<b>Special Features:</b>
-				<i>Micro-Capsule</i>- Can be loaded with any sort of chemical agent via the common syringe and can hold 50 units.<BR>
-				Can only be loaded while still in its original case.<BR>
-				<b>Integrity:</b> Implant will last so long as the subject is alive."}
-	return dat
-
-/obj/item/weapon/implant/chem/New()
-	..()
-	create_reagents(50)
-	tracked_implants += src
-
-/obj/item/weapon/implant/chem/Destroy()
-	..()
-	tracked_implants -= src
-
-
-
-
-/obj/item/weapon/implant/chem/trigger(emote, mob/source)
-	if(emote == "deathgasp")
-		activate(reagents.total_volume)
-
-/obj/item/weapon/implant/chem/activate(cause)
-	if(!cause || !imp_in)
-		return 0
-	var/mob/living/carbon/R = imp_in
-	var/injectamount = null
-	if (cause == "action_button")
-		injectamount = reagents.total_volume
-	else
-		injectamount = cause
-	reagents.trans_to(R, injectamount)
-	R << "<span class='italics'>You hear a faint beep.</span>"
-	if(!reagents.total_volume)
-		R << "<span class='italics'>You hear a faint click from your chest.</span>"
-		qdel(src)
-
-
-/obj/item/weapon/implantcase/chem
-	name = "implant case - 'Remote Chemical'"
-	desc = "A glass case containing a remote chemical implant."
-
-/obj/item/weapon/implantcase/chem/New()
-	imp = new /obj/item/weapon/implant/chem(src)
-	..()
-
-/obj/item/weapon/implantcase/chem/attackby(obj/item/weapon/W, mob/user, params)
-	if(imp)
-		imp.attackby(W, user, params)
-	else
-		return ..()
 
 //FREEDOM TG
 /obj/item/weapon/implant/freedom
 	name = "freedom implant"
 	desc = "Use this to escape from those evil Red Shirts."
 	icon_state = "freedom"
-	item_color = "r"
+	implant_color = "r"
 	origin_tech = "combat=5;magnets=3;biotech=4;syndicate=2"
 	uses = 4
 
@@ -184,6 +210,7 @@ No Implant Specifics"}
 	..()
 
 //KRAV MAGA TG
+/*
 /obj/item/weapon/implant/krav_maga
 	name = "krav maga implant"
 	desc = "Teaches you the arts of Krav Maga in 5 short instructional videos beamed directly into your eyeballs."
@@ -191,7 +218,7 @@ No Implant Specifics"}
 	icon_state ="scroll2"
 	activated = 1
 	origin_tech = "materials=2;biotech=4;combat=5;syndicate=4"
-	var/datum/martial_art/krav_maga/style = new
+	var/datum/martial_art/krav_maga/style = null
 
 /obj/item/weapon/implant/krav_maga/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
@@ -215,6 +242,7 @@ No Implant Specifics"}
 
 /obj/item/weapon/implanter/krav_maga/New()
 	imp = new /obj/item/weapon/implant/krav_maga(src)
+	style = new
 	..()
 
 /obj/item/weapon/implantcase/krav_maga
@@ -224,7 +252,7 @@ No Implant Specifics"}
 /obj/item/weapon/implantcase/krav_maga/New()
 	imp = new /obj/item/weapon/implant/krav_maga(src)
 	..()
-
+*/
 
 /obj/item/weapon/implant/weapons_auth
 	name = "firearms authentication implant"
@@ -242,40 +270,6 @@ No Implant Specifics"}
 	return dat
 
 
-/obj/item/weapon/implant/adrenalin
-	name = "adrenal implant"
-	desc = "Removes all stuns and knockdowns."
-	icon_state = "adrenal"
-	origin_tech = "materials=2;biotech=4;combat=3;syndicate=4"
-	uses = 3
-
-/obj/item/weapon/implant/adrenalin/get_data()
-	var/dat = {"<b>Implant Specifications:</b><BR>
-				<b>Name:</b> Cybersun Industries Adrenaline Implant<BR>
-				<b>Life:</b> Five days.<BR>
-				<b>Important Notes:</b> <font color='red'>Illegal</font><BR>
-				<HR>
-				<b>Implant Details:</b> Subjects injected with implant can activate an injection of medical cocktails.<BR>
-				<b>Function:</b> Removes stuns, increases speed, and has a mild healing effect.<BR>
-				<b>Integrity:</b> Implant can only be used three times before reserves are depleted."}
-	return dat
-
-/obj/item/weapon/implant/adrenalin/activate()
-	uses--
-	imp_in << "<span class='notice'>You feel a sudden surge of energy!</span>"
-	imp_in.SetStunned(0)
-	imp_in.SetWeakened(0)
-	imp_in.SetParalysis(0)
-	imp_in.adjustStaminaLoss(-75)
-	imp_in.lying = 0
-	imp_in.update_canmove()
-
-	imp_in.reagents.add_reagent("synaptizine", 10)
-	imp_in.reagents.add_reagent("omnizine", 10)
-	imp_in.reagents.add_reagent("stimulants", 10)
-	if(!uses)
-		qdel(src)
-
 
 /obj/item/weapon/implant/emp
 	name = "emp implant"
@@ -292,13 +286,20 @@ No Implant Specifics"}
 
 
 
+/obj/item/weapon/storage/internal/implant
+	name = "bluespace pocket"
+	max_w_class = 3
+	//max_w_class = 6
+	cant_hold = list(/obj/item/weapon/disk/nuclear)
+	//silent = 1
+	use_sound = null
 
 /obj/item/weapon/implant/storage
 	name = "storage implant"
 	desc = "Stores up to two big items in a bluespace pocket."
 	icon_state = "storage"
 	origin_tech = "materials=2;magnets=4;bluespace=5;syndicate=4"
-	item_color = "r"
+	implant_color = "r"
 	var/obj/item/weapon/storage/internal/implant/storage
 
 /obj/item/weapon/implant/storage/New()
@@ -319,7 +320,7 @@ No Implant Specifics"}
 	var/obj/item/weapon/implant/storage/imp_e = locate(src.type) in source
 	if(imp_e)
 		imp_e.storage.storage_slots += storage.storage_slots
-		imp_e.storage.max_combined_w_class += storage.max_combined_w_class
+		imp_e.storage.max_w_class += storage.max_w_class
 		imp_e.storage.contents += storage.contents
 
 		storage.close_all()

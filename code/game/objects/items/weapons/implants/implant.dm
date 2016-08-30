@@ -360,7 +360,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/weapon/implant/adrenalin
 	name = "adrenalin"
 	desc = "Removes all stuns and knockdowns."
-	var/uses
+	//var/uses
 
 	get_data()
 		var/dat = {"
