@@ -93,10 +93,7 @@
 		user << "<span class='warning'>You can't find anything in [target]'s [target_zone]!</span>"
 	return 1
 */
-/obj/item/weapon/implant
-	var/activated = 1
-	var/allow_multiple = 0
-	var/uses = -1
+
 
 //ANTILOYALITY TG
 /obj/item/weapon/implant/antiloyalty

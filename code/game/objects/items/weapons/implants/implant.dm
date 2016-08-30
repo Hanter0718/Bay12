@@ -52,6 +52,11 @@
 			part.implants.Remove(src)
 		return ..()
 
+/obj/item/weapon/implant
+	var/activated = 1
+	var/allow_multiple = 0
+	var/uses = -1
+
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"
 	desc = "Track with this."
