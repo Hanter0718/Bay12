@@ -52,6 +52,11 @@
 			part.implants.Remove(src)
 		return ..()
 
+/obj/item/weapon/implant
+	var/activated = 1
+	var/allow_multiple = 0
+	var/uses = -1
+
 /obj/item/weapon/implant/tracking
 	name = "tracking implant"
 	desc = "Track with this."
@@ -360,7 +365,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/weapon/implant/adrenalin
 	name = "adrenalin"
 	desc = "Removes all stuns and knockdowns."
-	var/uses
+	//var/uses
 
 	get_data()
 		var/dat = {"
